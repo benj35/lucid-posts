@@ -58,7 +58,7 @@ alembic upgrade head
 ```
 ### 6️⃣ Run the Application
 ```bash
-uvicorn main:app --reload
+uvicorn app.main:app --reload
 ```
 
 ### 7️⃣ Access API Documentation
