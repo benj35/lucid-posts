@@ -7,13 +7,24 @@ from sqlalchemy.orm import Session
 import os
 from dotenv import load_dotenv
 
+# Load environment variables
 load_dotenv()
 
+# Secret key for JWT token validation
 SECRET_KEY = os.getenv("SECRET_KEY")
 security = HTTPBearer()
 
 def get_current_user(credentials: HTTPAuthorizationCredentials = Security(security), db: Session = Depends(get_db)):
-    """Extracts and validates JWT token."""
+    """
+    Extracts and validates the JWT token to authenticate the user.
+    Args:
+        credentials (HTTPAuthorizationCredentials): The authorization credentials.
+        db (Session): The database session.
+    Returns:
+        The authenticated user object.
+    Raises:
+        HTTPException: If the token is invalid or expired.
+    """
     token = credentials.credentials
     try:
         payload = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
