@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 
-class PostRequest(BaseModel):
+class PostCreate(BaseModel):
     """
     Schema for creating a new post.
     Attributes:
