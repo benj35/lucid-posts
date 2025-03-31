@@ -30,12 +30,21 @@ cd <project-folder>
 ```
 
 ### 2️⃣ Clone the Repository
+```bash
 python -m venv venv
+```
+
+```bash
 source venv/bin/activate   # Mac/Linux
+```
+```bash
 venv\Scripts\activate      # Windows
+```
 
 ### 3️⃣ Install Dependencies
+```bash
 pip install -r requirements.txt
+```
 
 ### 4️⃣ Set Up Environment Variables
 Create a .env file and add the following variables:
@@ -44,10 +53,13 @@ DATABASE_URL=mysql+pymysql://username:password@localhost/db_name
 SECRET_KEY=your_secret_key
 
 ### 5️⃣ Apply Migrations
+```bash
 alembic upgrade head
-
+```
 ### 6️⃣ Run the Application
+```bash
 uvicorn main:app --reload
+```
 
 ### 7️⃣ Access API Documentation
 Once the application is running, FastAPI provides interactive API documentation at:
